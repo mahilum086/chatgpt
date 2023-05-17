@@ -8,9 +8,8 @@ import cors from "cors";
 
 const configuration = new Configuration({
     organization: 'org-o2hlYmBdByt5Qjj8Qf0Lyviq',
-    apiKey: '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',
+    apiKey: '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',
 });
-//another api key: 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
 
 const openai = new OpenAIApi(configuration);
 
@@ -35,17 +34,11 @@ app.use(express.static('public'));
 app.post("/", async(req, res) => {
     const {messages} = req.body;
 
-    //const completion = await openai.createChatCompletion({
-    //const completion = await openai.createFineTune({
-    const completion = await openai.createCompletion({
-        //model: "gpt-3.5-turbo",        
-        model: "davinci:ft-personal-2023-05-16-08-18-42",
-        prompt: 'What is Exetel',
-        //training_file: "davinci:ft-personal-2023-05-16-08-18-42",
-        //training_file: "file-mUwk1X5xbLDSpcS2qOpuqmRm",
+    const completion = await openai.createChatCompletion({
+        model: "gpt-3.5-turbo",      
         messages: [
             //{role: "user", content: `${message}`},
-            //{"role": "system", "content": "You are a  helpful customer support agent."},
+            {"role": "system", "content": "You are a  helpful customer support agent."},
             ...messages
         ]
     })
