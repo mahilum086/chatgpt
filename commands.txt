@@ -1,0 +1,4 @@
+>npm init
+>gpt4api
+>npm install express openai body-parser cors
+secret key: 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
